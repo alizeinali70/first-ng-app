@@ -3,11 +3,15 @@
 <form>
   <label Filter Todos></label>
 
-  <input
+<p-floatlabel variant="on">
+    <input pInputText name="searchTerm" id="searchTerm" [(ngModel)]="searchTerm" autocomplete="off" />
+    <label for="searchTerm">Search Todos</label>
+</p-floatlabel>
+  <!-- <input
     name="SearchTerm"
     [(ngModel)]="searchTerm"
     placeholder="Seach Todos ..."
-  />
+  /> -->
 </form>
 <!-- <table>
   <tr>

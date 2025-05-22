@@ -5,10 +5,13 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FilterTodosPipe } from '../pipes/filter-todos.pipe';
 import { TableModule } from 'primeng/table';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 @Component({
   selector: 'app-todos',
-  imports: [FormsModule, FilterTodosPipe, TableModule],
+  imports: [FormsModule, FilterTodosPipe, TableModule, FloatLabelModule,InputTextModule],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss',
 })
