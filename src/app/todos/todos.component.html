@@ -1,0 +1,37 @@
+<h1>Todo List</h1>
+
+<form>
+  <label Filter Todos></label>
+
+  <input
+    name="SearchTerm"
+    [(ngModel)]="searchTerm"
+    placeholder="Seach Todos ..."
+  />
+</form>
+<table>
+  <tr>
+    <th>ItemId</th>
+    <th>Title</th>
+    <th>UserId</th>
+    <th>IsCompleted</th>
+  </tr>
+  @for (item of todoItems() | filterTodos : searchTerm(); track $index) {
+  <tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.title }}</td>
+    <td>{{ item.userId }}</td>
+    @if (item.completed) {
+    <td>
+      <input type="checkbox" checked value="item.completed" />{{
+        item.completed
+      }}
+    </td>
+    } @else {
+    <td>
+      <input type="checkbox" value="item.completed" />{{ item.completed }}
+    </td>
+    }
+  </tr>
+  }
+</table>
