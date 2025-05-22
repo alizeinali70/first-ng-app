@@ -9,7 +9,7 @@
     placeholder="Seach Todos ..."
   />
 </form>
-<table>
+<!-- <table>
   <tr>
     <th>ItemId</th>
     <th>Title</th>
@@ -34,4 +34,35 @@
     }
   </tr>
   }
-</table>
+</table> -->
+<p-table
+  [value]="todoItems() | filterTodos : searchTerm()"
+  showGridlines
+  stripedRows
+  [tableStyle]="{ 'min-width': '50rem' }"
+>
+  <ng-template #header>
+    <tr>
+      <th>ItemId</th>
+      <th>Title</th>
+      <th>Id</th>
+      <th>IsCompleted</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-item>
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.userId }}</td>
+      <td>
+        @if (item.completed) {
+        <input type="checkbox" checked [value]="item.completed" />{{
+          item.completed
+        }}
+        } @else {
+        <input type="checkbox" [value]="item.completed" />{{ item.completed }}
+        }
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
